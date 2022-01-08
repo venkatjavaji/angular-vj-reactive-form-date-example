@@ -1,0 +1,52 @@
+<hello name="{{ name }}"></hello>
+<p>Start editing to see some magic happen :)</p>
+
+<div class="container">
+  <h1>
+    {{ title }}
+  </h1>
+  <p>
+    {{ formGroup.value | json }}
+
+    is form valid : {{ formGroup.valid }}
+  </p>
+  <form [formGroup]="formGroup">
+    <div class="form-group">
+      <label for="name">Email address</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        placeholder="Enter email"
+        formControlName="email"
+      />
+    </div>
+    <div class="form-group">
+      <label for="name">From Date</label>
+      <input
+        type="date"
+        class="form-control"
+        id="fromDate"
+        placeholder="Enter From Date"
+        formControlName="fromDate"
+        [min]="minFromDate"
+        [max]="maxFromDate"
+        (click)="onClickDate('fromDate')"
+      />
+    </div>
+    <div class="form-group">
+      <label for="name">To Date</label>
+      <input
+        type="date"
+        class="form-control"
+        id="toDate"
+        [min]="minToDate"
+        [max]="maxToDate"
+        placeholder="Enter To Date"
+        formControlName="toDate"
+        (click)="onClickDate('toDate')"
+      />
+    </div>
+    <!-- <button class="btn btn-primary" type="submit">Submit Form</button> -->
+  </form>
+</div>
